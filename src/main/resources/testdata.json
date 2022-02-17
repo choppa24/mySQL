@@ -1,0 +1,8 @@
+{
+  "testData": {
+    "minTimeTestsQuery": " SELECT project.name as PROJECT, test.name as TEST, to_seconds(end_time)-to_seconds(start_time) as MIN_WORKING_TIME FROM project INNER JOIN test ON project.id = test.project_id ORDER BY PROJECT,TEST;",
+    "uniqTestsOnProjectQuery": "SELECT DISTINCT project.name Project, COUNT(DISTINCT test.name) CountTests FROM project JOIN test on project.id=test.project_id GROUP BY project.name;",
+    "listTestsStartsOnTimeQuery": "SELECT  project.name project, test.name AS testCase, DATE(test.start_time)  as DateStart FROM  test JOIN project ON test.project_id=project.id WHERE  DAY(test.start_time) <  (13)  ORDER BY test.start_time",
+    "countTestsOnBrowserQuery": "SELECT browser Browser , COUNT(name) CountTests  FROM test GROUP BY browser"
+  }
+}
